@@ -17,6 +17,7 @@ bold=$(echo -en "\e[1m")
 nc=$(echo -en "\e[0m")
 lightblue=$(echo -en "\e[94m")
 lightgreen=$(echo -en "\e[92m")
+red=$(echo -en "\033[0;31m") 
 
 echo "
 ${bold}${lightgreen}========================================================================
@@ -123,13 +124,13 @@ echo "${nc}"
     
     echo "${bold}${lightgreen}==> Started ${lightblue}Container${lightgreen} <=="
     function runcmd1 {
-        printf "${bold}${lightred}Ubuntu${nc}@{lightblue}Terminal${nc}:~ "
+        printf "${bold}${red}Ubuntu${nc}@{lightblue}Terminal${nc}:~ "
         read -r cmdtorun
         ./libraries/proot -S . /bin/bash -c "$cmdtorun"
         runcmd
     }
     function runcmd {
-        printf "${bold}${lightred}Ubuntu${nc}@${lightblue}Terminal${nc}:~ "
+        printf "${bold}${red}Ubuntu${nc}@${lightblue}Terminal${nc}:~ "
         read -r cmdtorun
         ./libraries/proot -S . /bin/bash -c "$cmdtorun"
         runcmd1
