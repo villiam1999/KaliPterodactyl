@@ -129,7 +129,7 @@ echo "${nc}"
         runcmd
     }
     function runcmd {
-        printf "${bold}${lightgreen}Default${nc}@${lightblue}Container${nc}:~ "
+        printf "${bold}${lightred}Ubuntu${nc}@${lightblue}Terminal${nc}:~ "
         read -r cmdtorun
         ./libraries/proot -S . /bin/bash -c "$cmdtorun"
         runcmd1
