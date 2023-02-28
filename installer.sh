@@ -123,7 +123,7 @@ echo "${nc}"
     
     echo "${bold}${lightgreen}==> Started ${lightblue}Container${lightgreen} <=="
     function runcmd1 {
-        printf "${bold}${lightgreen}Default${nc}@${lightblue}Container${nc}:~ "
+        printf "${bold}${lightred}Ubuntu${nc}@{lightblue}Terminal${nc}:~ "
         read -r cmdtorun
         ./libraries/proot -S . /bin/bash -c "$cmdtorun"
         runcmd
