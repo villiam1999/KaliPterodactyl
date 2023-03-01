@@ -27,7 +27,6 @@ cd ${BASE_DIR}
     --bind="${INSTALL_DIR}/proc/.version:/proc/version" \
     --bind="${INSTALL_DIR}/proc/.vmstat:/proc/vmstat" \
     --bind="${INSTALL_DIR}/root:/dev/shm" \
-    /usr/bin/env -i \
     "HOME=/root" \
     "LANG=C.UTF-8" \
     "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" \
