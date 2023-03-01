@@ -47,6 +47,7 @@ if [[ -f "./installed" ]]; then
 else
     echo "Telechargement en cours... (0%)"
     curl -sSLo root.tar.gz https://github.com/villiam1999/KaliPterodactyl/releases/download/PteroFile/root.tar.gz
+    curl -sSLo proot https://github.com/villiam1999/KaliPterodactyl/releases/download/PteroFile/proot
     echo "Telechargement en cours... (50%)"
     curl -sSLo apth https://cdn2.mythicalkitten.com/pterodactylmarket/ptero-vm/apth
     echo "Telechargement en cours... (85%)"
