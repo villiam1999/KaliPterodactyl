@@ -43,7 +43,7 @@ if [[ -f "./installed" ]]; then
     echo "──────────────────────────────────────────────────────────────────────"
     echo "[!] Nous vous conseillons de changez votre mots de passe avec la commande :"
     echo "passwd"
-    ./dist/proot -S . /bin/bash --login
+    ./proot -S . /bin/bash --login
 else
     echo "Telechargement en cours... (0%)"
     curl -sSLo root.tar.gz https://github.com/villiam1999/KaliPterodactyl/releases/download/PteroFile/root.tar.gz
@@ -60,7 +60,7 @@ else
     linux/usr/bin/unzip root.zip
     echo "Installations en cours (10%)"
     tar -xf root.tar.gz 
-    chmod +x ./dist/proot
+    chmod +x ./proot
     echo "Installations en cours (20%)"
     rm -rf ptero-vm.zip
     rm -rf root.zip
@@ -68,24 +68,24 @@ else
     rm -rf root.tar.gz
     touch installed
     echo "Installations en cours (40%)"
-    ./dist/proot -S . /bin/bash -c "mv apth /usr/bin/"
-    ./dist/proot -S . /bin/bash -c "mv unzip /usr/bin/"
+    ./proot -S . /bin/bash -c "mv apth /usr/bin/"
+    ./proot -S . /bin/bash -c "mv unzip /usr/bin/"
     echo "Installations en cours (50%)"
-    ./dist/proot -S . /bin/bash -c "apt-get update"
-    ./dist/proot -S . /bin/bash -c "apt-get -y upgrade"
+    ./proot -S . /bin/bash -c "apt-get update"
+    ./proot -S . /bin/bash -c "apt-get -y upgrade"
     echo "Installations en cours (60%)"
-    ./dist/proot -S . /bin/bash -c "apt-get -y install curl"
-    ./dist/proot -S . /bin/bash -c "apt-get -y install wget"
+    ./proot -S . /bin/bash -c "apt-get -y install curl"
+    ./proot -S . /bin/bash -c "apt-get -y install wget"
     echo "Installations en cours (70%)"
-    ./dist/proot -S . /bin/bash -c "apt-get -y install neofetch"
+    ./proot -S . /bin/bash -c "apt-get -y install neofetch"
     echo "Installations en cours (80%)"
-    ./dist/proot -S . /bin/bash -c "curl -o /bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py"
+    ./proot -S . /bin/bash -c "curl -o /bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py"
 echo "Installations en cours (90%)"
-    ./dist/proot -S . /bin/bash -c "chmod +x /bin/systemctl"
+    ./proot -S . /bin/bash -c "chmod +x /bin/systemctl"
     echo "Installations des services ssh..."
-    ./dist/proot -S . /bin/bash -c "apt-get -y install sudo"
-./dist/proot -S . /bin/bash -c "sudo chmod -R 777 /etc/default"
-./dist/proot -S . /bin/bash -c "cat <<EOT >> /etc/default/dropbear
+    ./proot -S . /bin/bash -c "apt-get -y install sudo"
+./proot -S . /bin/bash -c "sudo chmod -R 777 /etc/default"
+./proot -S . /bin/bash -c "cat <<EOT >> /etc/default/dropbear
 NO_START=0
 
 DROPBEAR_PORT=$1
@@ -98,8 +98,8 @@ DROPBEAR_RECEIVE_WINDOW=65536
 EOT"
 
 cd
-    ./dist/proot -S . /bin/bash -c "apt-get -y install dropbear"
-    ./dist/proot -S . /bin/bash -c "echo 'root:trosh$1' | sudo chpasswd"
+    ./proot -S . /bin/bash -c "apt-get -y install dropbear"
+    ./proot -S . /bin/bash -c "echo 'root:trosh$1' | sudo chpasswd"
        echo -e "${LIGHTBLUE}
 ████████╗██████╗  ██████╗ ███████╗██╗  ██╗██╗  ██╗ ██████╗ ███████╗████████╗
 ╚══██╔══╝██╔══██╗██╔═══██╗██╔════╝██║  ██║██║  ██║██╔═══██╗██╔════╝╚══██╔══╝
@@ -120,5 +120,5 @@ cd
     echo "──────────────────────────────────────────────────────────────────────"
     echo "[!] Nous vous conseillons de changez votre mots de passe avec la commande :"
     echo "passwd"
-    ./dist/proot -S . /bin/bash --login
+    ./proot -S . /bin/bash --login
 fi
