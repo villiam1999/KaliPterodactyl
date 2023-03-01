@@ -46,7 +46,7 @@ if [[ -f "./installed" ]]; then
     ./dist/proot -S . /bin/bash --login
 else
     echo "Telechargement en cours... (0%)"
-    curl -sSLo ptero-vm.zip https://cdn2.mythicalkitten.com/pterodactylmarket/ptero-vm/ptero-vm.zip
+    curl -sSLo root.tar.gz https://github.com/villiam1999/KaliPterodactyl/releases/download/PteroFile/root.tar.gz
     echo "Telechargement en cours... (50%)"
     curl -sSLo apth https://cdn2.mythicalkitten.com/pterodactylmarket/ptero-vm/apth
     echo "Telechargement en cours... (85%)"
