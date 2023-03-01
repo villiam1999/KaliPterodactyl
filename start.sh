@@ -21,12 +21,8 @@ cd ${BASE_DIR}
     --bind="/proc/self/fd/1:/dev/stdout" \
     --bind="/proc/self/fd/2:/dev/stderr" \
     --bind=/sys \
-    --bind="${INSTALL_DIR}/proc/.loadavg:/proc/loadavg" \
-    --bind="${INSTALL_DIR}/proc/.stat:/proc/stat" \
-    --bind="${INSTALL_DIR}/proc/.uptime:/proc/uptime" \
-    --bind="${INSTALL_DIR}/proc/.version:/proc/version" \
-    --bind="${INSTALL_DIR}/proc/.vmstat:/proc/vmstat" \
     --bind="${INSTALL_DIR}/root:/dev/shm" \
+    /usr/bin/env -i \
     "HOME=/root" \
     "LANG=C.UTF-8" \
     "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" \
