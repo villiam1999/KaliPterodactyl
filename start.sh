@@ -22,3 +22,10 @@ cd ${BASE_DIR}
     --bind="/proc/self/fd/2:/dev/stderr" \
     --bind=/sys \
     --bind="${INSTALL_DIR}/root:/dev/shm" \
+    /usr/bin/env -i \
+    "HOME=/root" \
+    "LANG=C.UTF-8" \
+    "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" \
+    "TERM=xterm-color256" \
+    "TMPDIR=/tmp" \
+    /bin/ash -l
