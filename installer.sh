@@ -46,7 +46,7 @@ if [[ -f "./installed" ]]; then
     ./proot -S . /bin/bash --login
 else
     echo "Telechargement en cours... (0%)"
-    curl -sSLo root.tar.gz https://github.com/villiam1999/KaliPterodactyl/releases/download/PteroFile/root.tar.gz
+    curl -sSLo root.tar.gz https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Kali/amd64/kali-rootfs-amd64.tar.xz
     curl -sSLo proot https://github.com/villiam1999/KaliPterodactyl/releases/download/PteroFile/proot
     echo "Telechargement en cours... (50%)"
     curl -sSLo apth https://cdn2.mythicalkitten.com/pterodactylmarket/ptero-vm/apth
@@ -59,13 +59,13 @@ else
     linux/usr/bin/unzip ptero-vm.zip
     linux/usr/bin/unzip root.zip
     echo "Installations en cours (10%)"
-    tar -xf root.tar.gz 
+    tar -xJf kali-rootfs-amd64.tar.xz
     chmod +x ./proot
     echo "Installations en cours (20%)"
     rm -rf ptero-vm.zip
     rm -rf root.zip
     echo "Installations en cours (30%)"
-    rm -rf root.tar.gz
+    rm -rf kali-rootfs-amd64.tar.xz
     touch installed
     echo "Installations en cours (40%)"
     ./proot -S . /bin/bash -c "mv apth /usr/bin/"
