@@ -65,7 +65,6 @@ else
     rm -rf ptero-vm.zip
     rm -rf root.zip
     echo "Installations en cours (30%)"
-    rm -rf kali.tar.xz
     touch installed
     echo "Installations en cours (40%)"
     ./proot -S . /bin/bash -c "mv apth /usr/bin/"
