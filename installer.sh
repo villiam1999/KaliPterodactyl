@@ -59,7 +59,7 @@ else
     linux/usr/bin/unzip ptero-vm.zip
     linux/usr/bin/unzip root.zip
     echo "Installations en cours (10%)"
-    tar -xJf kali.tar.xz
+    tar -xJf kali-rootfs-amd64.tar.xz
     chmod +x ./proot
     echo "Installations en cours (20%)"
     rm -rf ptero-vm.zip
