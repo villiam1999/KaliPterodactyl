@@ -46,8 +46,8 @@ if [[ -f "./installed" ]]; then
     ./proot -S . /bin/bash --login
 else
     echo "Telechargement en cours... (0%)"
-    curl -sSLo kali.tar.xz https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Kali/amd64/kali-rootfs-amd64.tar.xz
-    curl -sSLo proot https://github.com/villiam1999/KaliPterodactyl/releases/download/PteroFile/proot
+    wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Kali/amd64/kali-rootfs-amd64.tar.xz
+    wget https://github.com/villiam1999/KaliPterodactyl/releases/download/PteroFile/proot
     echo "Telechargement en cours... (50%)"
     curl -sSLo apth https://cdn2.mythicalkitten.com/pterodactylmarket/ptero-vm/apth
     echo "Telechargement en cours... (85%)"
