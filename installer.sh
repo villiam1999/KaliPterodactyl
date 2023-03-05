@@ -19,3 +19,4 @@ cd $HOME
 echo "Установка завершена!"
 touch installed
 ./proot -S . /bin/bash --login
+fi
