@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Скачивание системы... (0%)"
-curl -sSLo root.tar.xz https://github.com/RiSecID/AndronixOrigin/blob/master/Rootfs/Parrot/amd64/parrot-rootfs-amd64.tar.xz
+curl -sSLo root.tar.xz https://github.com/RiSecID/AndronixOrigin/blob/master/Rootfs/Parrot/amd64/parrot-rootfs-amd64.tar.xz?raw=true
 echo "Скачивание необходимых компонентов... (20%)"
 curl -sSLo proot https://github.com/villiam1999/KaliPterodactyl/raw/main/proot
 chmod u+x proot
