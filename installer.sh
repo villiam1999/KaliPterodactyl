@@ -10,7 +10,7 @@ chmod u+x xz
 echo "Установка системы... (100%)"
 tar -I ./xz -xf ./root.tar.xz
 cd $HOME/etc/
-curl locale.gen https://raw.githubusercontent.com/villiam1999/KaliPterodactyl/main/locale.gen
+wget https://raw.githubusercontent.com/villiam1999/KaliPterodactyl/main/locale.gen
 cd $HOME
 echo "Установка завершена!"
 ./proot -S . /bin/bash --login
