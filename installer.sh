@@ -10,6 +10,4 @@ chmod u+x xz
 echo "Установка системы... (100%)"
 tar -I ./xz -xf ./root.tar.xz
 echo "Установка завершена!"
-rm -rf xz
-rm -rf root.tar.xz
 ./proot -S . /bin/bash --login
