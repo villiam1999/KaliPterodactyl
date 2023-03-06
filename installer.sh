@@ -29,7 +29,7 @@ cd $HOME
  ./proot -S . /bin/bash -c "apt-get -y install neofetch"
 clear
 echo "Установка завершена!"
+ ./proot -S . /bin/bash -c "neofetch"
 touch installed
 ./proot -S . /bin/bash --login
- neofetch
 fi
