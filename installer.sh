@@ -17,6 +17,7 @@ cd $HOME/etc/
 wget https://raw.githubusercontent.com/villiam1999/KaliPterodactyl/main/locale.gen
 cd $HOME
  ./proot -S . /bin/bash -c "apt-get update"
+ ./proot -S . /bin/bash -c "apt update"
  ./proot -S . /bin/bash -c "apt-get -y install curl"
  ./proot -S . /bin/bash -c "apt-get -y install sudo"
  ./proot -S . /bin/bash -c "apt -y install locales"
