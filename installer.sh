@@ -16,12 +16,12 @@ tar -I ./xz -xf ./root.tar.xz
 cd $HOME/etc/
 wget https://raw.githubusercontent.com/villiam1999/KaliPterodactyl/main/locale.gen
 cd $HOME
-./proot -S . /bin/bash -c "apt-get update"
-./proot -S . /bin/bash -c "apt-get -y install curl"
-./proot -S . /bin/bash -c "apt-get -y install sudo"
-./proot -S . /bin/bash -c "apt -y install locale"
-./proot -S . /bin/bash -c "locale-gen"
-./proot -S . /bin/bash -c "apt-get -y install neofetch"
+ ./proot -S . /bin/bash -c "apt-get update"
+ ./proot -S . /bin/bash -c "apt-get -y install curl"
+ ./proot -S . /bin/bash -c "apt-get -y install sudo"
+ ./proot -S . /bin/bash -c "apt -y install locales"
+ ./proot -S . /bin/bash -c "locale-gen"
+ ./proot -S . /bin/bash -c "apt-get -y install neofetch"
 echo "Установка завершена!"
 touch installed
 ./proot -S . /bin/bash --login
