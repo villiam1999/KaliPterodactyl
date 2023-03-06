@@ -1,6 +1,10 @@
 #!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m'
+AQUA='\033[46m'
+
 if [[ -f "./installed" ]]; then
-echo "Добро пожаловать в Kali Linux! Приятного использования ;3"
+echo "${AQUA}Добро пожаловать в Kali Linux! Приятного использования ;3"
 ./proot -S . /bin/bash --login
 else
 echo "Скачивание системы... (0%)"
@@ -23,7 +27,9 @@ cd $HOME
  ./proot -S . /bin/bash -c "apt -y install locales"
  ./proot -S . /bin/bash -c "locale-gen"
  ./proot -S . /bin/bash -c "apt-get -y install neofetch"
+clear
 echo "Установка завершена!"
 touch installed
 ./proot -S . /bin/bash --login
+ ./proot -S . /bin/bash -c "neofetch"
 fi
