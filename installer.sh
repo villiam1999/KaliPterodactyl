@@ -1,10 +1,11 @@
 #!/bin/bash
+BLACK='\033[30m'
 RED='\033[0;31m'
 NC='\033[0m'
 AQUA='\033[46m'
 
 if [[ -f "./installed" ]]; then
-echo -e "${AQUA}Добро пожаловать в Kali Linux! Приятного использования ;3"
+echo -e "${AQUA}${BLACK}Добро пожаловать в Kali Linux! Приятного использования ;3"
 ./proot -S . /bin/bash --login
 else
 echo "Скачивание системы... (0%)"
