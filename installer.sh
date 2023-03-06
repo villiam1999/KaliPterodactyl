@@ -4,7 +4,7 @@ NC='\033[0m'
 AQUA='\033[46m'
 
 if [[ -f "./installed" ]]; then
-echo "${AQUA}Добро пожаловать в Kali Linux! Приятного использования ;3"
+echo "${RED}Добро пожаловать в Kali Linux! Приятного использования ;3"
 ./proot -S . /bin/bash --login
 else
 echo "Скачивание системы... (0%)"
