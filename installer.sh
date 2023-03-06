@@ -31,5 +31,5 @@ clear
 echo "Установка завершена!"
 touch installed
 ./proot -S . /bin/bash --login
- ./proot -S . /bin/bash -c "neofetch"
+ neofetch
 fi
