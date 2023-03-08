@@ -26,6 +26,8 @@ chmod u+x proot
 clear
 echo -e "${AQUA}${BLACK}Установка завершена!"
  ./proot -S . /bin/bash -c "neofetch"
+cd ..
 touch installed
+cd kali-amd64
 ./proot -S . /bin/bash --login
 fi
