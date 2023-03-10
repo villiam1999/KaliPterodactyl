@@ -25,15 +25,5 @@ echo "Установка системы... (30%)"
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
-./proot -S . \
- -w /root \
- /usr/bin/env -i \
- MOZ_FAKE_NO_SANDBOX=1 \
- HOME=/root \
- PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games \
- TERM=xterm \
- LANG=en_US.UTF-8 \
- LC_ALL=C \
- LANGUAGE=en_US \
- /bin/bash --login
- fi
+./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
+fi
