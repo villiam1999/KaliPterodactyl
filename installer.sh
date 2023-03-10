@@ -50,7 +50,6 @@ sudo chmod +x /etc/init.d/vncserver
 vncserver
 su' > installvnc
  ./proot -S . /bin/bash -c "chmod u+x installvnc"
- ./proot -S . /bin/bash -c "./installvnc"
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
