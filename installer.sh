@@ -35,7 +35,7 @@ lxtask lxterminal lxhotkey-core lxhotkey-data lxshortcut obconf gtk2-engines \
 tigervnc-standalone-server tigervnc-common dbus-x11 --no-install-recommends -y
 echo '#!/bin/bash
 echo -e "${AQUA}${BLACK}запущен VNC сервер, чтобы подключится к нему, зайдите в программу TigerVncViewer и пишите адрес $IP:$PORT"
-echo -e "${RED}!!!При первом входе вам нужно будет дважды ввести пароль от вашего VNC сервера и потом нажать n!!!"
+echo -e "${RED}!!!При первом входе вам нужно будет дважды ввести пароль от вашего VNC сервера и потом написать n!!!"
 vncserver -localhost no -rfbport $PORT' > /usr/bin/vnc
 chmod u+x /usr/bin/vnc" > installvnc
  ./proot -S . /bin/bash -c "chmod u+x installvnc"
