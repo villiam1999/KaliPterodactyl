@@ -6,11 +6,17 @@ AQUA='\033[46m'
 
 if [[ -f "./installed" ]]; then
 echo -e "${AQUA}${BLACK}Добро пожаловать в Ubuntu! Приятного использования ;3"
-    function runcmd {
-        printf "UbuntuVPS:~ "
+    function runcmd1 {
+        printf "UbuntuVDS:~  "
         read -r cmdtorun
-        ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login 
+        ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
         runcmd
+    }
+    function runcmd {
+        printf "UbuntuVDS:~ "
+        read -r cmdtorun
+        ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
+        runcmd1
     }
     runcmd
 else
@@ -27,7 +33,7 @@ echo "Установка системы... (30%)"
  ./proot -S . /bin/bash -c "apt -y install curl"
  ./proot -S . /bin/bash -c "apt -y install sudo"
  ./proot -S . /bin/bash -c "apt -y install neofetch"
- ./proot -S . HOME=/root /bin/bash -c "touch ~/.hushlogin"
+ ./proot -S . /bin/bash -c "touch /root/.hushlogin"
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
