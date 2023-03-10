@@ -3,9 +3,13 @@ BLACK='\033[30m'
 RED='\033[0;31m'
 NC='\033[0m'
 AQUA='\033[46m'
+PORT=$SERVER_PORT
+IP=$SERVER_IP
 
 if [[ -f "./installed" ]]; then
-echo -e "${AQUA}${BLACK}Добро пожаловать в ${AQUA}${RED}Ubuntu!${AQUA}${BLACK} Приятного использования ;3"
+echo -e "${AQUA}${BLACK}Добро пожаловать в Ubuntu! Приятного использования ;3"
+echo -e "${AQUA}${BLACK}Порт сервера - $PORT"
+echo -e "${AQUA}${BLACK}Айпи сервера - $IP"
 ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
 else
 echo "Скачивание системы... (0%)"
