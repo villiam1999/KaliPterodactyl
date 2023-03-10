@@ -26,31 +26,6 @@ echo "Установка системы... (100%)"
  ./proot -S . /bin/bash -c "apt -y install sudo"
  ./proot -S . /bin/bash -c "apt -y install neofetch"
  ./proot -S . /bin/bash -c "touch /root/.hushlogin"
-echo '#!/bin/bash
-apt-get update -y
-sudo apt-get install xfce4 xfce4-goodies xorg lxde-core tigervnc-standalone-server tigervnc-xorg-extension -y --allow-unauthenticated
-vncserver
-vncserver -kill :1
-mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
-echo "#!/bin/bash
-xrdb $HOME/.Xresources
-startxfce4 &
-lxterminal &
-/usr/bin/lxsession -s LXDE &" >> ~/.vnc/xstartup
-sudo chmod +x ~/.vnc/xstartup
-echo "#!/bin/bash
-PATH="$PATH:/usr/bin/"
-export USER="user"
-DISPLAY="1"
-DEPTH="16"
-GEOMETRY="1024x768"
-OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY} -localhost"
-. /lib/lsb/init-functions" >> /etc/init.d/vncserver
-sudo chmod +x /etc/init.d/vncserver
-su
-exit' > installvnc
- ./proot -S . /bin/bash -c "chmod u+x installvnc"
- ./proot -S . /bin/bash -c "./installvnc"
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
