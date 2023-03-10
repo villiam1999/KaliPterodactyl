@@ -48,7 +48,8 @@ OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY} -localhost"
 . /lib/lsb/init-functions" >> /etc/init.d/vncserver
 sudo chmod +x /etc/init.d/vncserver
 vncserver
-su' > installvnc
+su
+logout' > installvnc
  ./proot -S . /bin/bash -c "chmod u+x installvnc"
  ./proot -S . /bin/bash -c "./installvnc"
 clear
