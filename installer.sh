@@ -32,8 +32,8 @@ lxpanel lxpanel-data lxrandr lxsession lxsession-data lxsession-default-apps lxs
 lxtask lxterminal lxhotkey-core lxhotkey-data lxshortcut obconf gtk2-engines \
 tigervnc-standalone-server tigervnc-common dbus-x11 --no-install-recommends -y
 echo '#!/bin/bash
-echo "запущен VNC сервер, чтобы подключится к нему, зайдите в программу и пишите адрес IP:PORT
-vncserver -localhost no -rfbport $PORT' > /usr/bin/vnc
+echo "запущен VNC сервер, чтобы подключится к нему, зайдите в программу TigerVncViewer и пишите адрес IP:PORT"
+vncserver -localhost no -rfbport $PORT' > /usr/bin/vnc' > installvnc
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
