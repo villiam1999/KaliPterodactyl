@@ -21,7 +21,7 @@ echo "Установка системы... (30%)"
  ./proot -S . /bin/bash -c "apt -y install curl"
  ./proot -S . /bin/bash -c "apt -y install sudo"
  ./proot -S . /bin/bash -c "apt -y install neofetch"
-touch ~/.hushlogin
+ ./proot -S . HOME=/root /bin/bash -c "touch ~/.hushlogin"
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
