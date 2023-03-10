@@ -47,7 +47,6 @@ GEOMETRY="1024x768"
 OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY} -localhost"
 . /lib/lsb/init-functions" >> /etc/init.d/vncserver
 sudo chmod +x /etc/init.d/vncserver
-vncserver
 su
 exit' > installvnc
  ./proot -S . /bin/bash -c "chmod u+x installvnc"
