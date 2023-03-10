@@ -27,7 +27,7 @@ echo "Установка системы... (100%)"
  ./proot -S . /bin/bash -c "apt -y install neofetch"
  ./proot -S . /bin/bash -c "touch /root/.hushlogin"
 echo "#!/bin/bash
-  apt-get update -y && sudo apt-get upgrade -y
+                apt-get update -y && sudo apt-get upgrade -y
 		sudo apt-get install xfce4 xfce4-goodies xorg lxde-core tigervnc-standalone-server tigervnc-xorg-extension -y --allow-unauthenticated
 		vncserver
 		vncserver -kill :1
@@ -48,7 +48,7 @@ echo "#!/bin/bash
 		. /lib/lsb/init-functions" >> /etc/init.d/vncserver
 		sudo chmod +x /etc/init.d/vncserver
 		vncserver
-		su" >> installervnc
+		su" > installervnc.sh
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
