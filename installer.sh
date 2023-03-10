@@ -26,14 +26,14 @@ echo "Установка системы... (100%)"
  ./proot -S . /bin/bash -c "apt -y install sudo"
  ./proot -S . /bin/bash -c "apt -y install neofetch"
  ./proot -S . /bin/bash -c "touch /root/.hushlogin"
-echo '#!/bin/bash
+echo "#!/bin/bash
 sudo apt install xfe lxde-common lxde-core lxde-icon-theme lxappearance lxlock lxmenu-data \
 lxpanel lxpanel-data lxrandr lxsession lxsession-data lxsession-default-apps lxsession-logout \
 lxtask lxterminal lxhotkey-core lxhotkey-data lxshortcut obconf gtk2-engines \
 tigervnc-standalone-server tigervnc-common dbus-x11 --no-install-recommends -y
 echo '#!/bin/bash
 echo "запущен VNC сервер, чтобы подключится к нему, зайдите в программу TigerVncViewer и пишите адрес $IP:$PORT"
-vncserver -localhost no -rfbport $PORT' > /usr/bin/vnc' > installvnc
+vncserver -localhost no -rfbport $PORT' > /usr/bin/vnc" > installvnc
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
