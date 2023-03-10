@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "#!/bin/bash
+echo '#!/bin/bash
 xrdb $HOME/.Xresources
 startxfce4 &
 lxterminal &
@@ -15,4 +15,4 @@ OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY} -localhost"
 . /lib/lsb/init-functions" >> /etc/init.d/vncserver
 sudo chmod +x /etc/init.d/vncserver
 vncserver
-su" >> $HOME/lolya
+su' >> lol.txt
