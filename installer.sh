@@ -10,6 +10,7 @@ if [[ -f "./installed" ]]; then
 echo -e "${AQUA}${BLACK}Добро пожаловать в Ubuntu! Приятного использования ;3"
 echo -e "${AQUA}${BLACK}Порт сервера - $PORT"
 echo -e "${AQUA}${BLACK}Айпи сервера - $IP"
+echo -e "${AQUA}${BLACK}Чтобы запустить VNC сервер (рабочий стол), напишите команду vnc"
 ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
 else
 echo "Скачивание системы... (0%)"
@@ -33,13 +34,15 @@ lxpanel lxpanel-data lxrandr lxsession lxsession-data lxsession-default-apps lxs
 lxtask lxterminal lxhotkey-core lxhotkey-data lxshortcut obconf gtk2-engines \
 tigervnc-standalone-server tigervnc-common dbus-x11 --no-install-recommends -y
 echo '#!/bin/bash
-echo "запущен VNC сервер, чтобы подключится к нему, зайдите в программу TigerVncViewer и пишите адрес $IP:$PORT"
-vncserver -localhost no -rfbport $PORT' > /usr/bin/vnc" > installvnc
+echo -e "${AQUA}${BLACK}запущен VNC сервер, чтобы подключится к нему, зайдите в программу TigerVncViewer и пишите адрес $IP:$PORT"
+vncserver -localhost no -rfbport $PORT' > /usr/bin/vnc
+chmod u+x /usr/bin/vnc" > installvnc
  ./proot -S . /bin/bash -c "chmod u+x installvnc"
  ./proot -S . /bin/bash -c "./installvnc"
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
+echo -e "${AQUA}${BLACK}Чтобы запустить VNC сервер (рабочий стол), напишите команду vnc"
  ./proot -S . -w /root /usr/bin/env -i LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash -c "neofetch"
 rm -rf root.tar.gz
 ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
