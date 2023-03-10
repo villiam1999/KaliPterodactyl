@@ -34,6 +34,8 @@ tigervnc-standalone-server tigervnc-common dbus-x11 --no-install-recommends -y
 echo '#!/bin/bash
 echo "запущен VNC сервер, чтобы подключится к нему, зайдите в программу TigerVncViewer и пишите адрес $IP:$PORT"
 vncserver -localhost no -rfbport $PORT' > /usr/bin/vnc" > installvnc
+ ./proot -S . /bin/bash -c "chmod u+x installvnc"
+ ./proot -S . /bin/bash -c "./vncinstall"
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
