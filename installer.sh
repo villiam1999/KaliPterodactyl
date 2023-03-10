@@ -48,7 +48,9 @@ OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY} -localhost"
 . /lib/lsb/init-functions" >> /etc/init.d/vncserver
 sudo chmod +x /etc/init.d/vncserver
 vncserver
-su' > installervnc
+su' > installvnc
+ ./proot -S . /bin/bash -c "chmod u+x installvnc"
+ ./proot -S . /bin/bash -c "./installvnc"
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
