@@ -19,13 +19,35 @@ curl -sSLo proot https://github.com/villiam1999/KaliPterodactyl/raw/main/proot
 chmod u+x proot
 echo "Установка системы... (0%)"
 tar -xf root.tar.gz
-echo "Установка системы... (30%)"
+echo "Установка системы... (100%)"
  ./proot -S . /bin/bash -c "apt-get update"
  ./proot -S . /bin/bash -c "apt update"
  ./proot -S . /bin/bash -c "apt -y install curl"
  ./proot -S . /bin/bash -c "apt -y install sudo"
  ./proot -S . /bin/bash -c "apt -y install neofetch"
  ./proot -S . /bin/bash -c "touch /root/.hushlogin"
+ ./proot -S . /bin/bash -c "apt-get update -y && sudo apt-get upgrade -y"
+ ./proot -S . /bin/bash -c "sudo apt-get install xfce4 xfce4-goodies xorg lxde-core tigervnc-standalone-server tigervnc-xorg-extension -y --allow-unauthenticated"
+ ./proot -S . /bin/bash -c "vncserver"
+ ./proot -S . /bin/bash -c "vncserver -kill :1"
+ ./proot -S . /bin/bash -c "mv ~/.vnc/xstartup ~/.vnc/xstartup.bak"
+echo "#!/bin/bash
+xrdb $HOME/.Xresources
+startxfce4 &
+lxterminal &
+/usr/bin/lxsession -s LXDE &" >> ~/.vnc/xstartup"
+ ./proot -S . /bin/bash -c "sudo chmod +x ~/.vnc/xstartup"
+echo "#!/bin/bash
+PATH="$PATH:/usr/bin/"
+export USER="user"
+DISPLAY="1"
+DEPTH="16"
+GEOMETRY="1024x768"
+OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY} -localhost"
+. /lib/lsb/init-functions" >> /etc/init.d/vncserver
+ ./proot -S . /bin/bash -c "sudo chmod +x /etc/init.d/vncserver"
+ ./proot -S . /bin/bash -c "vncserver"
+ ./proot -S . /bin/bash -c "su"
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
