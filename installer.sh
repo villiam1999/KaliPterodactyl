@@ -49,7 +49,7 @@ OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY} -localhost"
 sudo chmod +x /etc/init.d/vncserver
 vncserver
 su
-logout' > installvnc
+exit' > installvnc
  ./proot -S . /bin/bash -c "chmod u+x installvnc"
  ./proot -S . /bin/bash -c "./installvnc"
 clear
