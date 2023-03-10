@@ -23,6 +23,7 @@ echo "Установка системы... (100%)"
  ./proot -S . /bin/bash -c "apt-get update"
  ./proot -S . /bin/bash -c "apt update"
  ./proot -S . /bin/bash -c "apt -y install curl"
+ ./proot -S . /bin/bash -c "apt -y install wget"
  ./proot -S . /bin/bash -c "apt -y install sudo"
  ./proot -S . /bin/bash -c "apt -y install neofetch"
  ./proot -S . /bin/bash -c "touch /root/.hushlogin"
@@ -35,7 +36,7 @@ echo '#!/bin/bash
 echo "запущен VNC сервер, чтобы подключится к нему, зайдите в программу TigerVncViewer и пишите адрес $IP:$PORT"
 vncserver -localhost no -rfbport $PORT' > /usr/bin/vnc" > installvnc
  ./proot -S . /bin/bash -c "chmod u+x installvnc"
- ./proot -S . /bin/bash -c "./vncinstall"
+ ./proot -S . /bin/bash -c "./installvnc"
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
