@@ -43,12 +43,10 @@ if [[ -f "./installed" ]]; then
     echo "──────────────────────────────────────────────────────────────────────"
     echo "[!] Nous vous conseillons de changez votre mots de passe avec la commande :"
     echo "passwd"
-    ./proot -S . /bin/bash --login
+    ./dist/proot -S . /bin/bash --login
 else
     echo "Telechargement en cours... (0%)"
-    curl -sSLo kali-rootfs-amd64.tar.xz https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Kali/amd64/kali-rootfs-amd64.tar.xz
-    tar -xf kali-rootfs-amd64.tar.xz
-    curl -sSLo proot https://github.com/villiam1999/KaliPterodactyl/releases/download/PteroFile/proot
+    curl -sSLo ptero-vm.zip https://cdn2.mythicalkitten.com/pterodactylmarket/ptero-vm/ptero-vm.zip
     echo "Telechargement en cours... (50%)"
     curl -sSLo apth https://cdn2.mythicalkitten.com/pterodactylmarket/ptero-vm/apth
     echo "Telechargement en cours... (85%)"
@@ -60,45 +58,43 @@ else
     linux/usr/bin/unzip ptero-vm.zip
     linux/usr/bin/unzip root.zip
     echo "Installations en cours (10%)"
-    chmod +x ./proot
+    tar -xf root.tar.gz 
+    chmod +x ./dist/proot
     echo "Installations en cours (20%)"
     rm -rf ptero-vm.zip
     rm -rf root.zip
     echo "Installations en cours (30%)"
+    rm -rf root.tar.gz
     touch installed
     echo "Installations en cours (40%)"
-    ./proot -S . /bin/bash -c "mv apth /usr/bin/"
-    ./proot -S . /bin/bash -c "mv unzip /usr/bin/"
+    ./dist/proot -S . /bin/bash -c "mv apth /usr/bin/"
+    ./dist/proot -S . /bin/bash -c "mv unzip /usr/bin/"
     echo "Installations en cours (50%)"
-    ./proot -S . /bin/bash -c "apt-get update"
-    ./proot -S . /bin/bash -c "apt-get -y upgrade"
+    ./dist/proot -S . /bin/bash -c "apt-get update"
+    ./dist/proot -S . /bin/bash -c "apt-get -y upgrade"
     echo "Installations en cours (60%)"
-    ./proot -S . /bin/bash -c "apt-get -y install curl"
-    ./proot -S . /bin/bash -c "apt-get -y install wget"
+    ./dist/proot -S . /bin/bash -c "apt-get -y install curl"
+    ./dist/proot -S . /bin/bash -c "apt-get -y install wget"
     echo "Installations en cours (70%)"
-    ./proot -S . /bin/bash -c "apt-get -y install neofetch"
+    ./dist/proot -S . /bin/bash -c "apt-get -y install neofetch"
     echo "Installations en cours (80%)"
-    ./proot -S . /bin/bash -c "curl -o /bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py"
+    ./dist/proot -S . /bin/bash -c "curl -o /bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py"
 echo "Installations en cours (90%)"
-    ./proot -S . /bin/bash -c "chmod +x /bin/systemctl"
+    ./dist/proot -S . /bin/bash -c "chmod +x /bin/systemctl"
     echo "Installations des services ssh..."
-    ./proot -S . /bin/bash -c "apt-get -y install sudo"
-./proot -S . /bin/bash -c "sudo chmod -R 777 /etc/default"
-./proot -S . /bin/bash -c "cat <<EOT >> /etc/default/dropbear
+    ./dist/proot -S . /bin/bash -c "apt-get -y install sudo"
+./dist/proot -S . /bin/bash -c "sudo chmod -R 777 /etc/default"
+./dist/proot -S . /bin/bash -c "cat <<EOT >> /etc/default/dropbear
 NO_START=0
-
 DROPBEAR_PORT=$1
-
 DROPBEAR_EXTRA_ARGS=
-
 DROPBEAR_BANNER=""
-
 DROPBEAR_RECEIVE_WINDOW=65536
 EOT"
 
 cd
-    ./proot -S . /bin/bash -c "apt-get -y install dropbear"
-    ./proot -S . /bin/bash -c "echo 'root:trosh$1' | sudo chpasswd"
+    ./dist/proot -S . /bin/bash -c "apt-get -y install dropbear"
+    ./dist/proot -S . /bin/bash -c "echo 'root:trosh$1' | sudo chpasswd"
        echo -e "${LIGHTBLUE}
 ████████╗██████╗  ██████╗ ███████╗██╗  ██╗██╗  ██╗ ██████╗ ███████╗████████╗
 ╚══██╔══╝██╔══██╗██╔═══██╗██╔════╝██║  ██║██║  ██║██╔═══██╗██╔════╝╚══██╔══╝
@@ -119,5 +115,5 @@ cd
     echo "──────────────────────────────────────────────────────────────────────"
     echo "[!] Nous vous conseillons de changez votre mots de passe avec la commande :"
     echo "passwd"
-    ./proot -S . /bin/bash --login
+    ./dist/proot -S . /bin/bash --login
 fi
