@@ -28,7 +28,7 @@ echo "Установка системы... (100%)"
  ./proot -S . /bin/bash -c "apt -y install sudo"
  ./proot -S . /bin/bash -c "apt -y install neofetch"
  ./proot -S . /bin/bash -c "touch /root/.hushlogin"
-echo "#!/bin/bash
+cat "#!/bin/bash
 sudo apt install xfe lxde-common lxde-core lxde-icon-theme lxappearance lxlock lxmenu-data \
 lxpanel lxpanel-data lxrandr lxsession lxsession-data lxsession-default-apps lxsession-logout \
 lxtask lxterminal lxhotkey-core lxhotkey-data lxshortcut obconf gtk2-engines \
