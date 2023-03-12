@@ -11,7 +11,7 @@ echo -e "${AQUA}${BLACK}Добро пожаловать в Ubuntu! Приятн�
 echo -e "${AQUA}${BLACK}Порт сервера - $PORT"
 echo -e "${AQUA}${BLACK}Айпи сервера - $IP (Если вдруг айпи и порт не определились, такое может быть если вы запускаете не из Pterodactyl, то vnc вряд ли будет работать .... Пока что ;3)"
 echo -e "${AQUA}${BLACK}Чтобы запустить VNC сервер (рабочий стол), напишите команду vnc"
-echo -e "${AQUA}${BLACK}Чтобы зайти в ssh, откройте powershell и напишите ssh root@$IP -p $PORT , далее введите пароль ssh$PORT"
+echo -e "${AQUA}${BLACK}Чтобы зайти в ssh, напишите комманду startssh, откройте powershell и напишите ssh root@$IP -p $PORT , далее введите пароль ssh$PORT"
 ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
 else
 echo "Скачивание системы... (0%)"
@@ -68,7 +68,7 @@ clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
 echo -e "${AQUA}${BLACK}Чтобы запустить VNC сервер (рабочий стол), напишите команду vnc"
-echo -e "${AQUA}${BLACK}Чтобы зайти в ssh, откройте powershell и напишите ssh root@$IP -p $PORT , далее введите пароль ssh$PORT"
+echo -e "${AQUA}${BLACK}Чтобы зайти в ssh, напишите комманду startssh, откройте powershell и напишите ssh root@$IP -p $PORT , далее введите пароль ssh$PORT"
  ./proot -S . -w /root /usr/bin/env -i LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash -c "neofetch"
 rm -rf root.tar.gz
 ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
