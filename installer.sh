@@ -7,8 +7,6 @@ PORT=$SERVER_PORT
 IP=$SERVER_IP 
 
 if [[ -f "./installed" ]]; then
-./proot -S . /bin/bash -c "service dropbear start"
-clear
 echo -e "${AQUA}${BLACK}Добро пожаловать в Ubuntu! Приятного использования ;3"
 echo -e "${AQUA}${BLACK}Порт сервера - $PORT"
 echo -e "${AQUA}${BLACK}Айпи сервера - $IP (Если вдруг айпи и порт не определились, такое может быть если вы запускаете не из Pterodactyl, то vnc вряд ли будет работать .... Пока что ;3)"
@@ -60,12 +58,12 @@ DROPBEAR_BANNER=""
 
 DROPBEAR_RECEIVE_WINDOW=65536' > /etc/default/dropbear
 echo "root:ssh12345" | chpasswd
-service dropbear restart
-service dropbear start" > installssh
+echo '#!/bin/bash
+echo SSH успешно запущен и готов для подключения! комманда для входе через powershell и не только ssh root@$IP -p $PORT , пароль ssh12345
+service dropbear start' > /usr/bin/startssh
+chmod u+x /usr/bin/startssh" > installssh
 clear
 touch installed
-./proot -S . /bin/bash -c "service dropbear start"
-clear
 echo -e "${AQUA}${BLACK}Установка завершена!"
 echo -e "${AQUA}${BLACK}Чтобы запустить VNC сервер (рабочий стол), напишите команду vnc"
 echo -e "${AQUA}${BLACK}Чтобы зайти в ssh, откройте powershell и напишите ssh root@$IP -p $PORT , далее введите пароль ssh12345"
