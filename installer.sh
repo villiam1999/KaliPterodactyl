@@ -7,7 +7,6 @@ PORT=$SERVER_PORT
 IP=$SERVER_IP 
 
 if [[ -f "./installed" ]]; then
-./proot -S . /bin/bash -c "service dropbear restart"
 ./proot -S . /bin/bash -c "service dropbear start"
 clear
 echo -e "${AQUA}${BLACK}Добро пожаловать в Ubuntu! Приятного использования ;3"
@@ -65,7 +64,6 @@ service dropbear restart
 service dropbear start" > installssh
 clear
 touch installed
-./proot -S . /bin/bash -c "service dropbear restart"
 ./proot -S . /bin/bash -c "service dropbear start"
 clear
 echo -e "${AQUA}${BLACK}Установка завершена!"
