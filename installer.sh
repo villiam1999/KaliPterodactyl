@@ -4,12 +4,12 @@ RED='\033[0;31m'
 NC='\033[0m'
 AQUA='\033[46m'
 PORT=$SERVER_PORT
-IP=$SERVER_IP
+IP=$SERVER_IP 
 
 if [[ -f "./installed" ]]; then
 echo -e "${AQUA}${BLACK}Добро пожаловать в Ubuntu! Приятного использования ;3"
 echo -e "${AQUA}${BLACK}Порт сервера - $PORT"
-echo -e "${AQUA}${BLACK}Айпи сервера - $IP"
+echo -e "${AQUA}${BLACK}Айпи сервера - $IP (Если вдруг айпи и порт не определились, такое может быть если вы запускаете не из Pterodactyl, то vnc вряд ли будет работать .... Пока что ;3)"
 echo -e "${AQUA}${BLACK}Чтобы запустить VNC сервер (рабочий стол), напишите команду vnc"
 ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
 else
@@ -40,6 +40,24 @@ vncserver -localhost no -rfbport $PORT' > /usr/bin/vnc
 chmod u+x /usr/bin/vnc" > installvnc
  ./proot -S . /bin/bash -c "chmod u+x installvnc"
  ./proot -S . /bin/bash -c "./installvnc"
+echo "#!/bin/bash
+sudo apt install dropbear
+echo '
+DROPBEAR_PORT=$PORT
+
+DROPBEAR_EXTRA_ARGS=
+
+DROPBEAR_BANNER=""
+
+#DROPBEAR_RSAKEY="/etc/dropbear/dropbear_rsa_host_key"
+
+#DROPBEAR_DSSKEY="/etc/dropbear/dropbear_dss_host_key"
+
+#DROPBEAR_ECDSAKEY="/etc/dropbear/dropbear_ecdsa_host_key"
+
+DROPBEAR_RECEIVE_WINDOW=65536' > /etc/default/dropbear
+service dropbear restart
+service dropbear start" > installssh
 clear
 touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
