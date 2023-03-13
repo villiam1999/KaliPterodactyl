@@ -15,9 +15,11 @@ then
     echo "Ключ успешно активирован, приятного использования!"
 else
     echo "Ключ введён не правильно , или не доступен!"
+killall -9
 if [ "$result" == "banned" ]
 then
     echo "Вы были забанены администратором!"
+killall -9
 fi
 if [[ -f "./installed" ]]; then
 echo -e "${AQUA}${BLACK}Добро пожаловать в Ubuntu! Приятного использования ;3"
