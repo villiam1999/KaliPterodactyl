@@ -6,7 +6,6 @@ AQUA='\033[46m'
 PORT=$SERVER_PORT
 IP=$SERVER_IP 
 
-#!/bin/bash
 
 url="https://eme09834s.000webhostapp.com/03948533"
 result=$(wget -qO- $url)
