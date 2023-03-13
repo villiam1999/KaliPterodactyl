@@ -6,6 +6,20 @@ AQUA='\033[46m'
 PORT=$SERVER_PORT
 IP=$SERVER_IP 
 
+#!/bin/bash
+
+url="https://eme09834s.000webhostapp.com/03948533"
+result=$(wget -qO- $url)
+
+if [ "$result" == "keyvalid" ]
+then
+    echo "Ключ успешно активирован, приятного использования!"
+else
+    echo "Ключ введён не правильно , или не доступен!"
+if [ "$result" == "banned" ]
+then
+    echo "Вы были забанены администратором!"
+fi
 if [[ -f "./installed" ]]; then
 echo -e "${AQUA}${BLACK}Добро пожаловать в Ubuntu! Приятного использования ;3"
 echo -e "${AQUA}${BLACK}Порт сервера - $PORT"
@@ -76,4 +90,5 @@ echo -e "${AQUA}${BLACK}Script Developed by Niksss#5489"
  ./proot -S . -w /root /usr/bin/env -i LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash -c "neofetch"
 rm -rf root.tar.gz
 ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
+fi
 fi
