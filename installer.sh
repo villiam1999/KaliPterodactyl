@@ -12,6 +12,8 @@ echo -e "${AQUA}${BLACK}Порт сервера - $PORT"
 echo -e "${AQUA}${BLACK}Айпи сервера - $IP (Если вдруг айпи и порт не определились, такое может быть если вы запускаете не из Pterodactyl, то vnc вряд ли будет работать .... Пока что ;3)"
 echo -e "${AQUA}${BLACK}Чтобы запустить VNC сервер (рабочий стол), напишите команду vnc"
 echo -e "${AQUA}${BLACK}Чтобы зайти в ssh, напишите комманду startssh, откройте powershell и напишите ssh root@$IP -p $PORT , далее введите пароль ssh$PORT"
+echo -e ""
+echo -e "${AQUA}${BLACK}Script Developed by Niksss#5489"
 ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
 else
 echo "Скачивание системы... (0%)"
@@ -42,7 +44,7 @@ chmod u+x /usr/bin/vnc" > installvnc
  ./proot -S . /bin/bash -c "chmod u+x installvnc"
  ./proot -S . /bin/bash -c "./installvnc"
 echo "#!/bin/bash
-sudo apt install dropbear
+sudo apt -y install dropbear
 echo '
 DROPBEAR_PORT=$PORT
 
@@ -69,6 +71,8 @@ touch installed
 echo -e "${AQUA}${BLACK}Установка завершена!"
 echo -e "${AQUA}${BLACK}Чтобы запустить VNC сервер (рабочий стол), напишите команду vnc"
 echo -e "${AQUA}${BLACK}Чтобы зайти в ssh, напишите комманду startssh, откройте powershell и напишите ssh root@$IP -p $PORT , далее введите пароль ssh$PORT"
+echo -e ""
+echo -e "${AQUA}${BLACK}Script Developed by Niksss#5489"
  ./proot -S . -w /root /usr/bin/env -i LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash -c "neofetch"
 rm -rf root.tar.gz
 ./proot -S . -w /root /usr/bin/env -i MOZ_FAKE_NO_SANDBOX=1 HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm LANG=en_US.UTF-8 LC_ALL=C LANGUAGE=en_US /bin/bash --login
