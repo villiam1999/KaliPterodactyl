@@ -5,9 +5,10 @@ NC='\033[0m'
 AQUA='\033[46m'
 PORT=$SERVER_PORT
 IP=$SERVER_IP 
+KEYS=$(<./key.txt)
 
-touch key.txt
-url="https://eme09834s.000webhostapp.com/$KEY"
+
+url="https://eme09834s.000webhostapp.com/$KEYS"
 result=$(wget -qO- $url)
 
 if [ "$result" == "keyvalid" ]
