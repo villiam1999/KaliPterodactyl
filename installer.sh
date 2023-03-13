@@ -15,11 +15,11 @@ then
     echo "Ключ успешно активирован, приятного использования!"
 else
     echo "Ключ введён не правильно , или не доступен!"
-killall -9
+exit
 if [ "$result" == "banned" ]
 then
     echo "Вы были забанены администратором!"
-killall -9
+exit
 fi
 fi
 if [[ -f "./installed" ]]; then
